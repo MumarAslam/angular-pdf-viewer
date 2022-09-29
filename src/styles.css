@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+html { 
+    background: url(https://cdn.pixabay.com/photo/2019/04/10/11/56/watercolor-4116932__340.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }

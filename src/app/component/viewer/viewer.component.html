@@ -1,0 +1,18 @@
+<input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+<div class="file-upload">
+    {{fileName || "No file uploaded yet."}}
+    <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+        <div>attach_file</div>
+    </button>
+</div>
+<ngx-spinner size="medium" [type]="typeSelected"></ngx-spinner>
+<ng-container *ngIf="isLoaded">
+    <input type="input" class="button" name="number" [(ngModel)]="number" id="doc-viewer"
+        (keyup.enter)="focusOnAnItem()" />
+    <virtual-scroller #scroll [items]="items" (vsChange)="fetchMore($event)" [ssrChildHeight]="175" [enableUnequalChildrenSizes]="true">
+        <div *ngFor="let item of scroll.viewPortItems" class="item">
+            <img src={{item.image}}>
+            <div class="number">{{item.index}}</div>
+        </div>
+    </virtual-scroller>
+</ng-container>
